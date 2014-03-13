@@ -3,12 +3,12 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_lXJoQaI7EeOlWfKChdKmlg" label="org.eclipse.e4.renderers.custom" width="500" height="400">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_lXKPWKI7EeOlWfKChdKmlg">
       <children xsi:type="advanced:Perspective" xmi:id="_lXKPWaI7EeOlWfKChdKmlg" elementId="org.eclipse.e4.renderers.custom">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_lXKPWqI7EeOlWfKChdKmlg">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_lXKPWqI7EeOlWfKChdKmlg" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_lXKPW6I7EeOlWfKChdKmlg" elementId="sopot.cela">
             <children xsi:type="basic:Part" xmi:id="_lXKPXKI7EeOlWfKChdKmlg" contributionURI="bundleclass://org.eclipse.e4.renderers.custom/org.eclipse.e4.renderers.custom.parts.SamplePart" label="Sample Part"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_2BgAgKJNEeOlWfKChdKmlg" elementId="org.eclipse.e4.renderers.custom.partstack.0">
-            <children xsi:type="basic:Part" xmi:id="_2qbBsKJNEeOlWfKChdKmlg" elementId="org.eclipse.e4.renderers.custom.part.0" contributionURI="bundleclass://org.eclipse.e4.renderers.custom/org.eclipse.e4.renderers.custom.parts.SamplePart" label="org.eclipse.e4.renderers.custom 2"/>
+            <children xsi:type="basic:Part" xmi:id="_2qbBsKJNEeOlWfKChdKmlg" elementId="org.eclipse.e4.renderers.custom.part.0" contributionURI="bundleclass://org.eclipse.e4.renderers.custom/org.eclipse.e4.renderers.custom.parts.SamplePart" label="Test 2"/>
           </children>
         </children>
       </children>
