@@ -2,6 +2,7 @@ package org.eclipse.e4.renderers.custom.renderers;
 
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -15,6 +16,8 @@ public class CustomStackRenderer extends StackRenderer {
 	private CTabFolder ctf;
 	private Font oldFont;
 	private Color oldBgColor;
+	private MWindow mWindow;
+	private String winLabel;
 	
 	@Override
 	public Object createWidget(MUIElement element, Object parent) {
@@ -40,6 +43,8 @@ public class CustomStackRenderer extends StackRenderer {
 			CTabItem cTabItem = new CTabItem(ctf , ctf.getItemCount());
 			cTabItem.setText("<-- changes pending");
 			ctf.setSimple(false);
+			mWindow = part.getContext().get(MWindow.class);
+			mWindow.setLabel("Changes pending");
 			
 		}
 		else {
@@ -48,6 +53,7 @@ public class CustomStackRenderer extends StackRenderer {
 			cti.getControl().setBackground(oldBgColor);
 			cti.setText(part.getLocalizedLabel());
 			ctf.setSimple(true);
+			mWindow.setLabel("Changes saved");
 			
 		}
 	}
