@@ -12,6 +12,10 @@
                value="platform:/plugin/org.eclipse.e4.renderers.custom/css/default.css">
          </property>
          <property
+               name="rendererFactoryUri"
+               value="bundleclass://org.eclipse.e4.renderers.custom/org.eclipse.e4.renderers.custom.renderers.CustomRendererFactory">
+         </property>
+         <property
                name="appName"
                value="org.eclipse.e4.renderers.custom">
          </property>
