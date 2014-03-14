@@ -10,9 +10,6 @@ public class CustomWindowRenderer extends WBWRenderer {
 
 	@Override
 	public Object createWidget(MUIElement element, Object parent) {
-//		IEclipseContext context = win.getContext();
-//		EPartService ePartService = context.get(EPartService.class);
-//		MPart activePart = ePartService.getActivePart();
 		Shell shell = (Shell) super.createWidget(element, parent);
 		MWindow win = (MWindow) element;
 		String alpha = (String) win.getContext().get("alpha");

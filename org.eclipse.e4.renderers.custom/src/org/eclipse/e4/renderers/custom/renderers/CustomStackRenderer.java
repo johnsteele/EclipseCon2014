@@ -17,7 +17,6 @@ public class CustomStackRenderer extends StackRenderer {
 	private Font oldFont;
 	private Color oldBgColor;
 	private MWindow mWindow;
-	private String winLabel;
 	
 	@Override
 	public Object createWidget(MUIElement element, Object parent) {
