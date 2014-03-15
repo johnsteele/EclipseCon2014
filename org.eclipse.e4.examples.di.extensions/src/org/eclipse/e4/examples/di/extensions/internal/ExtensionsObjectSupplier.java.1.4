@@ -13,18 +13,12 @@ package org.eclipse.e4.examples.di.extensions.internal;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.inject.Inject;
 
-import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.IRegistryEventListener;
 import org.eclipse.e4.core.di.InjectionException;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.suppliers.ExtendedObjectSupplier;
@@ -60,10 +54,6 @@ public class ExtensionsObjectSupplier extends ExtendedObjectSupplier {
 				throw new InjectionException(
 						"Failed to specify an extension point");
 			}
-			// TODO 1.5 track the extension point
-			if (track) {
-				addExtensionPointListener(extensionPointId, requestor);
-			}
 			// TODO 1.4.3 return the extension point information
 			IExtensionPoint extensionPoint = registry
 					.getExtensionPoint(extensionPointId);
@@ -81,77 +71,6 @@ public class ExtensionsObjectSupplier extends ExtendedObjectSupplier {
 
 		// Annotation used with unsupported type
 		return null;
-	}
-
-	// TODO 1.5.1 add a registry listener
-	// TODO 1.5.2 save the requestor info
-	// TODO 1.5.2 re-evalute the requestor
-	// TODO 1.5.3 if the requestor is no longer valid, remove the listener
-	private class RegistryListener implements IRegistryEventListener {
-		IRequestor requestor;
-
-		public RegistryListener(IRequestor r) {
-			requestor = r;
-		}
-
-		private void removeListener() {
-			registry.removeListener(this);
-			Set<RegistryListener> listeners = requestors.remove(requestor);
-			if (listeners != null) {
-				for (RegistryListener listener : listeners) {
-					registry.removeListener(listener);
-				}
-			}
-		}
-
-		@Override
-		public void added(IExtension[] extensions) {
-			if (!requestor.isValid()) {
-				removeListener();
-				return;
-			}
-			requestor.resolveArguments(false);
-			requestor.execute();
-		}
-
-		@Override
-		public void removed(IExtension[] extensions) {
-			if (!requestor.isValid()) {
-				removeListener();
-				return;
-			}
-			requestor.resolveArguments(false);
-			requestor.execute();
-		}
-
-		@Override
-		public void added(IExtensionPoint[] extensionPoints) {
-			// this is a no-op
-		}
-
-		@Override
-		public void removed(IExtensionPoint[] extensionPoints) {
-			// this is a no-op
-		}
-	}
-
-	// TODO 1.6 remove all listeners for a requestor
-	private Map<IRequestor, Set<RegistryListener>> requestors = new HashMap<IRequestor, Set<RegistryListener>>();
-
-	private void addExtensionPointListener(String extensionPoint,
-			IRequestor requestor) {
-		// TODO 1.5.4 Add the registry listener
-		RegistryListener listener = new RegistryListener(requestor);
-		registry.addListener(listener, extensionPoint);
-
-		// TODO 1.6.1 store the listeners for a requestor
-		Set<RegistryListener> listeners = requestors.get(requestor);
-		if (listeners == null) {
-			listeners = new HashSet<ExtensionsObjectSupplier.RegistryListener>();
-			requestors.put(requestor, listeners);
-		}
-		listeners.add(listener);
-		// TODO 1.6.2 remote the listeners in removeListener()
 	}
 
 	private Class<?> getDesiredClass(Type desiredType) {

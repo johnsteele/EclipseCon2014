@@ -24,6 +24,8 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.util.tracker.ServiceTracker;
 
+// TODO 1.1 run the product: /org.eclipse.e4.examples.di.product/org.eclipse.e4.examples.di.product.product
+// TODO 1.1.1 see the current extension reader
 public class OldExtensionReader implements IRegistryEventListener {
 	private Set<AuthorCompany> authors;
 	private TableViewer viewer;

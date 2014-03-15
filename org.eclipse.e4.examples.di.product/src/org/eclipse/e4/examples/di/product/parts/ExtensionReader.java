@@ -37,6 +37,8 @@ public class ExtensionReader {
 
 	private Map<IConfigurationElement, AuthorCompany> registryToCompany = new HashMap<IConfigurationElement, AuthorCompany>();
 
+	// TODO 1.3.1 the extended object supplier should provide all current
+	// extensions
 	@Inject
 	@Optional
 	public void setExtensions(

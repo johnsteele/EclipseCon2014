@@ -20,9 +20,10 @@ import javax.inject.Qualifier;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 
+// TODO 1.2 Provide the annotation
 /**
  * This will inject the current valid list of {@link IConfigurationElement} for
- * this extension point.
+ * this extension point. It can be called on any thread.
  */
 @Qualifier
 @Documented
