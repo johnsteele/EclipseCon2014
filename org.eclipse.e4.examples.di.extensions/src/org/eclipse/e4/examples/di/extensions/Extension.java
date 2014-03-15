@@ -23,7 +23,8 @@ import org.eclipse.core.runtime.IConfigurationElement;
 // TODO 1.2 Provide the annotation
 /**
  * This will inject the current valid list of {@link IConfigurationElement} for
- * this extension point. It can be called on any thread.
+ * this extension point. A method with this annotation can be called from any
+ * thread.
  */
 @Qualifier
 @Documented
