@@ -9,6 +9,11 @@ public class CustomRendererFactory extends WorkbenchRendererFactory {
 
 	@Override
 	public AbstractPartRenderer getRenderer(MUIElement uiElement, Object parent) {
+		
+		//TODO 1: add condition to return custom window renderer
+		//TODO 2: add condition for custom sash renderer
+		//TODO 3: add condition for custom stack renderer
+		
 		return null;
 	}
 
