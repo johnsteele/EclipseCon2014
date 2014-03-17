@@ -125,11 +125,18 @@ public class ExtensionsObjectSupplier extends ExtendedObjectSupplier {
 		}
 	}
 
+	// TODO 1.6 remove all listeners for a requestor
+	// private Map<IRequestor, Set<RegistryListener>> requestors = new
+	// HashMap<IRequestor, Set<RegistryListener>>();
+
 	private void addExtensionPointListener(String extensionPoint,
 			IRequestor requestor) {
 		// TODO 1.5.4 Add the registry listener
 		RegistryListener listener = new RegistryListener(requestor);
 		registry.addListener(listener, extensionPoint);
+	// TODO 1.6.1 store the listeners for a requestor
+
+	// TODO 1.6.2 remote the listeners in removeListener()
 	}
 
 	private Class<?> getDesiredClass(Type desiredType) {

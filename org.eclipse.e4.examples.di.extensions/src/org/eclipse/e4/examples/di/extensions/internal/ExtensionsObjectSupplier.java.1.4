@@ -54,6 +54,8 @@ public class ExtensionsObjectSupplier extends ExtendedObjectSupplier {
 				throw new InjectionException(
 						"Failed to specify an extension point");
 			}
+			// TODO 1.5 track the extension point
+
 			// TODO 1.4.3 return the extension point information
 			IExtensionPoint extensionPoint = registry
 					.getExtensionPoint(extensionPointId);
@@ -72,6 +74,26 @@ public class ExtensionsObjectSupplier extends ExtendedObjectSupplier {
 		// Annotation used with unsupported type
 		return null;
 	}
+
+	// TODO 1.5.1 add a registry listener
+	// TODO 1.5.2 save the requestor info
+	// TODO 1.5.2 re-evalute the requestor
+	// TODO 1.5.3 if the requestor is no longer valid, remove the listener
+	// private class RegistryListener implements IRegistryEventListener {
+	// }
+
+	// TODO 1.6 remove all listeners for a requestor
+	// private Map<IRequestor, Set<RegistryListener>> requestors = new
+	// HashMap<IRequestor, Set<RegistryListener>>();
+
+	// private void addExtensionPointListener(String extensionPoint,
+	// IRequestor requestor) {
+	// TODO 1.5.4 Add the registry listener
+
+	// TODO 1.6.1 store the listeners for a requestor
+
+	// TODO 1.6.2 remote the listeners in removeListener()
+	// }
 
 	private Class<?> getDesiredClass(Type desiredType) {
 		if (desiredType instanceof Class<?>)
