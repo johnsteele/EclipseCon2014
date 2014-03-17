@@ -1,6 +1,5 @@
 package org.eclipse.e4.renderers.custom.renderers;
 
-import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer;
@@ -17,14 +16,6 @@ public class CustomStackRenderer extends StackRenderer {
 	private Font oldFont;
 	private Color oldBgColor;
 	private MWindow mWindow;
-	
-	@Override
-	public Object createWidget(MUIElement element, Object parent) {
-	
-		CTabFolder ctf = (CTabFolder) super.createWidget(element, parent);
-//		ctf.setSimple(false);
-		return ctf;
-	}
 	
 	@Override
 	protected void updateTab(CTabItem cti, MPart part, String attName,
