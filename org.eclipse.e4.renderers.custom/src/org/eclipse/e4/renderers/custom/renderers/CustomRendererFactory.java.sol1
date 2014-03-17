@@ -16,8 +16,8 @@ public class CustomRendererFactory extends WorkbenchRendererFactory {
 			if (windowRenderer== null){
 				windowRenderer = new CustomWindowRenderer();
 				initRenderer(windowRenderer);
-				return windowRenderer;
 			}
+			return windowRenderer;
 		}
 		
 		return super.getRenderer(uiElement, parent);

@@ -18,16 +18,16 @@ public class CustomRendererFactory extends WorkbenchRendererFactory {
 			if (windowRenderer== null){
 				windowRenderer = new CustomWindowRenderer();
 				initRenderer(windowRenderer);
-				return windowRenderer;
 			}
+			return windowRenderer;
 		}
 		
 		if (uiElement instanceof MPartSashContainer){
 			if (sashRenderer == null){
 				sashRenderer = new CustomSashRenderer();
 				initRenderer(sashRenderer);
-				return sashRenderer;
 			}
+			return sashRenderer;
 		}
 		return super.getRenderer(uiElement, parent);
 	}
